@@ -12,7 +12,7 @@ Get-ADComputer -Filter * | Select-Object -ExpandProperty Name | Out-File E:\syst
 
 # Create the list from a network query and store it in a variable:
 
-$systems = (net view | Select-String '\\\\') -replace '\\',''
+$systems = ((net view | Select-String '\\\\') -replace '\\','').Trim()
 
 # Import the computer names from a .CSV file and store the names in a variable:
 
